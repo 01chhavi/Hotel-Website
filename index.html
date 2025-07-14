@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Heritage Hotel</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+
+</head>
+<body>
+  <header class="hero-section">
+    <video autoplay muted loop class="bg-video">
+      <source src="hotel.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
+    <nav class="navbar">
+      <div class="logo">Royal Heritage</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#dining">Dining</a></li>
+        
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="book-now">Book Now</button>
+    </nav>
+    <div class="hero-text">
+      <h1>Experience Royalty</h1>
+      <p>Your luxurious stay begins here</p>
+    </div>
+  </header>
+
+  
+
+  <!-- Booking Modal -->
+<div class="booking-modal" id="bookingModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Book Your Stay</h2>
+    <form id="bookingForm">
+      <label for="checkin">Check-in:</label>
+      <input type="date" id="checkin" required>
+
+      <label for="checkout">Check-out:</label>
+      <input type="date" id="checkout" required>
+
+      <label for="guests">Guests:</label>
+      <input type="number" id="guests" min="1" max="10" required>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </div>
+</div>
+<section class="about-section">
+  <div class="container">
+    <div class="about-flex">
+      <div class="about-text">
+        <h2>Experience Timeless Elegance</h2>
+        <p>
+          At The Velvet Oak, luxury meets legacy. From handcrafted interiors to personalized hospitality, we welcome you to a haven of comfort rooted in natural beauty and cultural richness.
+        </p>
+        <ul class="about-highlights">
+          <li><i class="fa fa-check-circle"></i> Heritage-style architecture</li>
+          <li><i class="fa fa-check-circle"></i> Nature-integrated living</li>
+          <li><i class="fa fa-check-circle"></i> 24/7 concierge & spa services</li>
+        </ul>
+        <a href="#booking" class="book-now-btn">Book Your Royal Stay</a>
+      </div>
+      <div class="about-image-gallery">
+        <img src="img/lounge.jpg" alt="Velvet Oak Lobby">
+        <div class="sub-gallery">
+          
+          <img src="img/elegant.jpg" alt="Elegant Suite">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-section">
+  <div class="container">
+    <h2 class="section-heading">Our Signature Services</h2>
+    <p class="section-subtitle">Tailored for a regal stay at The Velvet Oak</p>
+
+    <div class="services-grid">
+      <div class="service-box">
+        <i class="fa fa-cutlery"></i>
+        <h4>Fine Dining</h4>
+        <p>Global and local cuisine curated by award-winning chefs.</p>
+      </div>
+
+      
+
+      <div class="service-box">
+        <i class="fa fa-swimmer"></i>
+        <h4>Infinity Pool</h4>
+        <p>Swim into the horizon with our scenic hilltop pool.</p>
+      </div>
+
+      <div class="service-box">
+        <i class="fa fa-tree"></i>
+        <h4>Nature Walks</h4>
+        <p>Guided trails through oak forests & birdwatching tours.</p>
+      </div>
+
+      <div class="service-box">
+        <i class="fa fa-concierge-bell"></i>
+        <h4>Concierge</h4>
+        <p>24/7 concierge to personalize your royal experience.</p>
+      </div>
+
+      <div class="service-box">
+        <i class="fa fa-champagne-glasses"></i>
+        <h4>Private Events</h4>
+        <p>Book exclusive spaces for celebrations & corporate meets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="room-plans-section" id="rooms">
+  <div class="container">
+    <h2 class="section-heading">Our Royal Rooms</h2>
+    <p class="section-subtitle">Each room is crafted to offer peace, elegance, and privacy</p>
+
+    <div class="room-grid">
+      <div class="room-card">
+        <img src="img/room1.jpg" alt="Garden Suite" />
+        <div class="room-info">
+          <h4>Garden View Suite</h4>
+          <p class="room-price">$199 / night</p>
+          <a href="#booking" class="room-btn">Choose Plan</a>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="img/room2.jpg" alt="Mountain View Room" />
+        <div class="room-info">
+          <h4>Mountain Retreat Room</h4>
+          <p class="room-price">$249 / night</p>
+          <a href="#booking" class="room-btn">Choose Plan</a>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="img/room3.jpg" alt="Presidential Suite" />
+        <div class="room-info">
+          <h4>Presidential Suite</h4>
+          <p class="room-price">$499 / night</p>
+          <a href="#booking" class="room-btn">Choose Plan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-section">
+  <h2 class="section-title">What Guests Are Saying</h2>
+  <div class="review">
+    <div class="review-image" id="review-img">
+      <img src="img/view.jpg" alt="Hotel Review Image" />
+    </div>
+    <div class="review-box">
+      <p id="review-text" class="review-text">
+        “The hotel was simply amazing and I couldn't thank The Velvet Oak more…”
+      </p>
+      <div class="reviewer-info">
+        <img id="reviewer-img" class="reviewer-img" src="img/profile-pic.jpg" alt="Reviewer">
+        <div class="reviewer-details">
+          <h4 id="reviewer-name">Olivia Blisset</h4>
+          <p id="reviewer-role">Satisfied Traveler</p>
+        </div>
+      </div>
+      <div class="review-controls">
+        <span class="material-icons" onclick="prevReview()">chevron_left</span>
+        <span class="material-icons" onclick="nextReview()">chevron_right</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="blog-section" id="blog">
+  <div class="container">
+    <h2 class="section-heading">Latest From Our Blog</h2>
+    <p class="section-subtitle">Stories, tips, and insights from The Velvet Oak</p>
+
+    <div class="blog-grid">
+      <div class="blog-post">
+        <img src="img/blog1.jpg" alt="Blog Post Image">
+        <div class="blog-content">
+          <h3>A Weekend Escape to the Hills</h3>
+          <p>Discover what makes our hilltop location the perfect weekend getaway. From scenic trails to local cuisine, here's what not to miss.</p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+      <div class="blog-post">
+        <img src="img/blog2.jpg" alt="Blog Post Image">
+        <div class="blog-content">
+          <h3>Inside Our Luxury Suites</h3>
+          <p>Take a peek inside our most requested suites and find out what makes them so unforgettable.</p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container contact-container">
+    <div class="contact-info">
+      <h2>Contact Us</h2>
+      <p>Have questions? Reach out to us and we'll be happy to help you plan your perfect stay.</p>
+      <ul>
+        <li><strong>Email:</strong> info@velvetoakhotel.com</li>
+        <li><strong>Phone:</strong> +91 98765 43210</li>
+        <li><strong>Address:</strong> The Velvet Oak, Hilltop Retreat, Shimla, India</li>
+      </ul>
+    </div>
+
+    <div class="contact-form">
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.130985664181!2d77.17339321514616!3d31.104814081497747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3905792b29aa39fb%3A0x939b6fc3370d2db0!2sShimla%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1624192173945!5m2!1sen!2sin"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+    ></iframe>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3>The Velvet Oak</h3>
+      <p>A royal escape in the hills blending elegance, nature, and comfort. Your luxurious retreat awaits.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+  <div class="footer-social">
+  <h4>Follow Us</h4>
+  <div class="social-icons">
+    
+    <a href="https://www.instagram.com/your_instagram_username" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/chhavi-tiwari-3436091b1/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 The Velvet Oak. All rights reserved.</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+
+</body>
+</html>
