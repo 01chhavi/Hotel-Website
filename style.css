@@ -203,7 +203,7 @@ h1, h2, h3 {
 .about-text h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
-  color: #1a6b54;
+  color: #b08d57; 
   margin-bottom: 20px;
 }
 
@@ -223,17 +223,17 @@ h1, h2, h3 {
 .about-highlights li {
   margin-bottom: 10px;
   font-size: 0.95rem;
-  color: #1a6b54;
+  color: #b08d57; 
 }
 
 .about-highlights li i {
   margin-right: 10px;
-  color: #0c382c;
+  color: #b08d57; 
 }
 
 .book-now-btn {
   padding: 12px 25px;
-  background-color: #1a6b54;
+  background-color: #b08d57; 
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -242,7 +242,7 @@ h1, h2, h3 {
 }
 
 .book-now-btn:hover {
-  background-color: #0e3d32;
+  background-color: #b08d57; 
 }
 
 .about-image-gallery {
@@ -278,7 +278,7 @@ h1, h2, h3 {
 .section-heading {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
-  color: #1a6b54;
+  color: #b08d57; 
   margin-bottom: 10px;
 }
 
@@ -309,7 +309,7 @@ h1, h2, h3 {
 
 .service-box i {
   font-size: 2.8rem;
-  color: #1a6b54;
+  color: #b08d57; 
   margin-bottom: 20px;
 }
 
@@ -363,18 +363,18 @@ h1, h2, h3 {
 .room-info h4 {
   margin-bottom: 10px;
   font-size: 1.2rem;
-  color: #222;
+  color: #b08d57; 
 }
 
 .room-price {
   font-weight: 600;
-  color: #1a6b54;
+  color: #b08d57; 
   margin-bottom: 20px;
 }
 
 .room-btn {
   padding: 12px 20px;
-  background-color: #1a6b54;
+  background-color: #b08d57; 
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -588,7 +588,7 @@ h1, h2, h3 {
 
 .blog-content h3 {
   margin-top: 0;
-  color: #1a6b54;
+  color: #b08d57; 
   font-size: 1.4rem;
 }
 
@@ -599,7 +599,7 @@ h1, h2, h3 {
 }
 
 .read-more {
-  color: #1a6b54;
+  color: #b08d57; 
   font-weight: bold;
   text-decoration: none;
   font-size: 0.9rem;
@@ -628,7 +628,7 @@ h1, h2, h3 {
 }
 
 .contact-info h2 {
-  color: #1a6b54;
+  color: #b08d57; 
   margin-bottom: 20px;
 }
 
@@ -669,7 +669,7 @@ h1, h2, h3 {
 }
 
 .contact-form button {
-  background-color: #1a6b54;
+  background-color: #b08d57; 
   color: #fff;
   border: none;
   padding: 12px 20px;
@@ -689,7 +689,7 @@ h1, h2, h3 {
 }
 
 .footer {
-  background-color: #1a6b54;
+  background-color: #b08d57; ;
   color: white;
   padding: 60px 20px 30px;
   font-size: 0.9rem;
@@ -754,7 +754,7 @@ h1, h2, h3 {
   display: inline-block;
   margin-right: 10px;
   background-color: white;
-  color: #1a6b54;
+  color: #b08d57; 
   padding: 8px 10px;
   border-radius: 50%;
   font-size: 1rem;
@@ -887,6 +887,77 @@ h1, h2, h3 {
 }
 
 
+/* Dining Section */
+.dining {
+  padding: 80px 10%;
+  background-color: #faf6f2;
+  text-align: center;
+}
+
+.dining .section-title {
+  font-size: 2.3rem;
+  color: #5b3a29;
+  margin-bottom: 40px;
+  font-family: 'Playfair Display', serif;
+}
+
+.dining-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.dining-text {
+  flex: 1 1 45%;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.dining-text ul {
+  margin-top: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.dining-text li {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.dining-images {
+  flex: 1 1 45%;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dining-images img {
+  width: 30%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.dining-images img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .dining-content {
+    flex-direction: column;
+  }
+  .dining-images img {
+    width: 80%;
+  }
+}
+
+
+
 .review-nav {
   margin-top: 20px;
   display: flex;
@@ -964,5 +1035,120 @@ h1, h2, h3 {
 .review-controls .material-icons:hover {
   color: #0c382c;
 }
+/* Universal section heading style */
+.section-title {
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #5b3a29; /* elegant royal brown color */
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Booking Modal */
+.booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.booking-content {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px 40px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.booking-content h2 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: #5b3a29;
+  margin-bottom: 20px;
+}
+
+.booking-content label {
+  display: block;
+  margin-bottom: 6px;
+  color: #444;
+  font-weight: 600;
+}
+
+.booking-content input,
+.booking-content select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.booking-content input:focus,
+.booking-content select:focus {
+  border-color: #5b3a29;
+}
+
+.confirm-btn {
+  width: 100%;
+  background-color: #5b3a29;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #7a4f36;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #5b3a29;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 
 
