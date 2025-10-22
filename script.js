@@ -1,7 +1,15 @@
 // Open modal
-document.querySelector(".book-now").addEventListener("click", () => {
-  document.getElementById("bookingModal").style.display = "flex";
+document.addEventListener("DOMContentLoaded", () => {
+  const bookButtons = document.querySelectorAll(".book-now, .book-now-btn");
+
+  bookButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent link jump
+      document.getElementById("bookingModal").style.display = "flex";
+    });
+  });
 });
+
 
 // Close modal
 function closeModal() {
@@ -84,4 +92,60 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 
   alert(`Thanks, ${name}! Your message has been received. We'll respond shortly.`);
   this.reset(); // Clear the form
+});
+
+
+
+// Booking modal logic
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("bookingModal");
+  const bookNowBtn = document.querySelector(".book-now");
+  const choosePlanBtns = document.querySelectorAll(".room-btn");
+  const closeBtn = document.getElementById("closeBooking");
+  const bookingForm = document.getElementById("bookingForm");
+  const roomTypeSelect = document.getElementById("room-type");
+
+  // Open modal when clicking Book Now button
+  if (bookNowBtn) {
+    bookNowBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+  }
+
+  // Open modal when clicking any Choose Plan button
+  choosePlanBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      // Auto-select the room type based on the room clicked
+      const roomName = btn.closest(".room-info").querySelector("h4").textContent;
+      [...roomTypeSelect.options].forEach((option) => {
+        if (option.text.includes(roomName)) {
+          option.selected = true;
+        }
+      });
+
+      modal.style.display = "flex";
+    });
+  });
+
+  // Close modal
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  // Close when clicking outside the modal
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  // Booking form submission
+  bookingForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("✅ Your booking has been submitted successfully!");
+    modal.style.display = "none";
+    bookingForm.reset();
+  });
 });
