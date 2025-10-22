@@ -43,25 +43,7 @@
 
   
 
-  <!-- Booking Modal -->
-<div class="booking-modal" id="bookingModal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2>Book Your Stay</h2>
-    <form id="bookingForm">
-      <label for="checkin">Check-in:</label>
-      <input type="date" id="checkin" required>
-
-      <label for="checkout">Check-out:</label>
-      <input type="date" id="checkout" required>
-
-      <label for="guests">Guests:</label>
-      <input type="number" id="guests" min="1" max="10" required>
-
-      <button type="submit">Confirm Booking</button>
-    </form>
-  </div>
-</div>
+ 
 <section class="about-section">
   <div class="container">
     <div class="about-flex">
@@ -88,7 +70,7 @@
   </div>
 </section>
 
-<section class="services-section">
+<section class="services-section" id="services">
   <div class="container">
     <h2 class="section-heading">Our Signature Services</h2>
     <p class="section-subtitle">Tailored for a regal stay at The Velvet Oak</p>
@@ -139,7 +121,7 @@
         <img src="img/room1.jpg" alt="Garden Suite" />
         <div class="room-info">
           <h4>Garden View Suite</h4>
-          <p class="room-price">$199 / night</p>
+          <p class="room-price">₹5,500/Night</p>
           <a href="#booking" class="room-btn">Choose Plan</a>
         </div>
       </div>
@@ -148,7 +130,7 @@
         <img src="img/room2.jpg" alt="Mountain View Room" />
         <div class="room-info">
           <h4>Mountain Retreat Room</h4>
-          <p class="room-price">$249 / night</p>
+          <p class="room-price">₹8,000/Night</p>
           <a href="#booking" class="room-btn">Choose Plan</a>
         </div>
       </div>
@@ -157,13 +139,38 @@
         <img src="img/room3.jpg" alt="Presidential Suite" />
         <div class="room-info">
           <h4>Presidential Suite</h4>
-          <p class="room-price">$499 / night</p>
+          <p class="room-price">₹7,000/Night</p>
           <a href="#booking" class="room-btn">Choose Plan</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Dining Section -->
+<section id="dining" class="dining">
+  <h2 class="section-title">Fine Dining & Culinary Experience</h2>
+  <div class="dining-content">
+    <div class="dining-text">
+      <p>
+        Experience world-class cuisines crafted by our master chefs. Whether you
+        crave authentic Indian dishes or global gourmet flavors, The Velvet Oak offers
+        an unforgettable culinary journey in an elegant royal ambiance.
+      </p>
+      <ul>
+        <li>🍴 The Royal Heritage Restaurant – Authentic fine dining</li>
+        <li>☕ The Velvet Café – Relaxed all-day beverages & snacks</li>
+        <li>🍷 Oak Lounge – Luxurious cocktails & evening gatherings</li>
+      </ul>
+    </div>
+    <div class="dining-images">
+      <img src="img/dining1.jpg" alt="Royal dining hall">
+      <img src="img/dining2.jpg" alt="Restaurant interior">
+      <img src="img/dining3.jpg" alt="Chef’s special cuisine">
+    </div>
+  </div>
+</section>
+
 
 <section class="reviews-section">
   <h2 class="section-title">What Guests Are Saying</h2>
@@ -262,7 +269,7 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#plans">Plans</a></li>
+        <li><a href="#rooms">Plans</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -280,16 +287,50 @@
 </div>
 
 
-      </div>
-    </div>
-  </div>
+    
 
   <div class="footer-bottom">
     <p>&copy; 2025 The Velvet Oak. All rights reserved.</p>
   </div>
 </footer>
-<script src="script.js"></script>
 
+
+<!-- Booking Modal -->
+<div class="booking-modal" id="bookingModal">
+  <div class="booking-content">
+    <span class="close-btn" id="closeBooking">&times;</span>
+    <h2>Book Your Stay</h2>
+    <form id="bookingForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="checkin">Check-In Date</label>
+      <input type="date" id="checkin" name="checkin" required>
+
+      <label for="checkout">Check-Out Date</label>
+      <input type="date" id="checkout" name="checkout" required>
+
+      <label for="room-type">Room Type</label>
+      <select id="room-type" name="room-type" required>
+        <option value="">Select a room type</option>
+        <option value="Garden View Suite">Garden View Suite - ₹5,500/Night</option>
+        <option value="Mountain Retreat Room">Mountain Retreat Room - ₹8,000/Night</option>
+        <option value="Presidential Suite">Presidential Suite - ₹7,000/Night</option>
+      </select>
+
+      <label for="guests">Number of Guests</label>
+      <input type="number" id="guests" name="guests" min="1" value="1" required>
+
+      <button type="submit" class="confirm-btn">Confirm Booking</button>
+    </form>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
