@@ -1,4 +1,4 @@
-# The Velvet Oak – Hotel Website
+# The Royal Heritage Hotel – Hotel Website
 
 A fully responsive and elegant hotel website designed to deliver a luxurious and royal experience. Built using **HTML**, **CSS**, and **JavaScript**, this project showcases a premium hotel with smooth design and interactive features.
 
