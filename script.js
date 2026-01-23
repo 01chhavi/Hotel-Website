@@ -1,103 +1,103 @@
-// Open modal
 document.addEventListener("DOMContentLoaded", () => {
-  const bookButtons = document.querySelectorAll(".book-now, .book-now-btn");
+  // --- WEATHER (NAV) ---
+  fetchWeatherNav();
 
-  bookButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault(); // Prevent link jump
-      document.getElementById("bookingModal").style.display = "flex";
+  function fetchWeatherNav() {
+    const apiKey = 'b13ef6259a5f3c54f5ad973470879af3';
+    const city = 'Shimla,IN';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('weather-temp-nav').textContent = `${Math.round(data.main.temp)}°C`;
+        const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+        document.getElementById('weather-icon-nav').src = iconUrl;
+      })
+      .catch(() => {
+        document.getElementById('weather-temp-nav').textContent = '--°C';
+      });
+  }
+
+  // --- SMOOTH SCROLL ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
-});
 
+  // --- REVIEWS ---
+  const reviews = [
+    {
+      img: "img/view.jpg",
+      text: "The hotel was simply amazing and I couldn't thank The Royal Heritage more...",
+      reviewerImg: "img/profile-pic.jpg",
+      name: "Olivia Blisset",
+      role: "Satisfied Traveler",
+    },
+    {
+      img: "img/view.jpg",
+      text: "From the first step in, I knew this was going to be special...",
+      reviewerImg: "img/arvi.jpg",
+      name: "Arvi",
+      role: "Frequent Guest",
+    },
+  ];
 
-// Close modal
-function closeModal() {
-  document.getElementById("bookingModal").style.display = "none";
-}
+  let currentReview = 0;
+  function showReview(i) {
+    const r = reviews[i];
+    document.getElementById("review-img").querySelector("img").src = r.img;
+    document.getElementById("review-text").innerText = r.text;
+    document.getElementById("reviewer-img").src = r.reviewerImg;
+    document.getElementById("reviewer-name").innerText = r.name;
+    document.getElementById("reviewer-role").innerText = r.role;
+  }
+  showReview(currentReview);
 
-// Handle form
-document.getElementById("bookingForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+  // --- Review Navigation ---
+  window.nextReview = function() {
+    currentReview = (currentReview + 1) % reviews.length;
+    showReview(currentReview);
+  };
 
-  const checkin = document.getElementById("checkin").value;
-  const checkout = document.getElementById("checkout").value;
-  const guests = document.getElementById("guests").value;
+  window.prevReview = function() {
+    currentReview = (currentReview - 1 + reviews.length) % reviews.length;
+    showReview(currentReview);
+  };
 
-  if (!checkin || !checkout || !guests) {
-    alert("Please fill all booking fields.");
-    return;
+  // --- CONTACT FORM (with localStorage) ---
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    const contactName = document.getElementById('name');
+    const contactEmail = document.getElementById('email');
+
+    // Load data
+    contactName.value = localStorage.getItem('userContactName') || "";
+    contactEmail.value = localStorage.getItem('userContactEmail') || "";
+
+    // Save on input
+    contactName.addEventListener('input', () => {
+      localStorage.setItem('userContactName', contactName.value);
+    });
+    contactEmail.addEventListener('input', () => {
+      localStorage.setItem('userContactEmail', contactEmail.value);
+    });
+
+    contactForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const message = document.getElementById("message").value.trim();
+      if (!contactName.value || !contactEmail.value || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+      alert(`Thanks, ${contactName.value}! Your message has been received.`);
+      contactForm.reset();
+    });
   }
 
-  alert(`✅ Booking Confirmed!\n📅 Check-in: ${checkin}\n📅 Check-out: ${checkout}\n👤 Guests: ${guests}`);
-  closeModal();
-});
-
-const reviews = [
-  {
-    img: "img/view.jpg",
-    text:
-      "The hotel was simply amazing and I couldn't thank The Velvet Oak more for helping out. I've been a customer for awhile and I have to say it's probably my favourite hotel!",
-    reviewerImg: "img/profile-pic.jpg",
-    name: "Olivia Blisset",
-    role: "Satisfied Traveler",
-  },
-  {
-    img: "img/view.jpg",
-    text:
-      "From the first step in, I knew this was going to be special. The staff were lovely, and the atmosphere was magical. Highly recommend to anyone seeking comfort with class.",
-    reviewerImg: "img/arvi.jpg",
-    name: "Arvi",
-    role: "Frequent Guest",
-  },
-];
-
-let currentReview = 0;
-
-function showReview(index) {
-  const review = reviews[index];
-  document.getElementById("review-img").querySelector("img").src = review.img;
-  document.getElementById("review-text").innerText = review.text;
-  document.getElementById("reviewer-img").src = review.reviewerImg;
-  document.getElementById("reviewer-name").innerText = review.name;
-  document.getElementById("reviewer-role").innerText = review.role;
-}
-
-function nextReview() {
-  currentReview = (currentReview + 1) % reviews.length;
-  showReview(currentReview);
-}
-
-function prevReview() {
-  currentReview = (currentReview - 1 + reviews.length) % reviews.length;
-  showReview(currentReview);
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  showReview(currentReview);
-});
-
-// Contact Form Submission
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  if (!name || !email || !message) {
-    alert("Please fill in all fields.");
-    return;
-  }
-
-  alert(`Thanks, ${name}! Your message has been received. We'll respond shortly.`);
-  this.reset(); // Clear the form
-});
-
-
-
-// Booking modal logic
-document.addEventListener("DOMContentLoaded", () => {
+  // --- BOOKING MODAL (with localStorage) ---
   const modal = document.getElementById("bookingModal");
   const bookNowBtn = document.querySelector(".book-now");
   const choosePlanBtns = document.querySelectorAll(".room-btn");
@@ -105,47 +105,78 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingForm = document.getElementById("bookingForm");
   const roomTypeSelect = document.getElementById("room-type");
 
-  // Open modal when clicking Book Now button
-  if (bookNowBtn) {
-    bookNowBtn.addEventListener("click", () => {
-      modal.style.display = "flex";
-    });
+  function openModal() {
+    modal.style.display = "flex";
+    bookingForm.reset(); // resets all form fields
+    document.getElementById("room-type").value = ""; // ensures first option selected
   }
 
-  // Open modal when clicking any Choose Plan button
-  choosePlanBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      // Auto-select the room type based on the room clicked
-      const roomName = btn.closest(".room-info").querySelector("h4").textContent;
-      [...roomTypeSelect.options].forEach((option) => {
-        if (option.text.includes(roomName)) {
-          option.selected = true;
-        }
-      });
-
-      modal.style.display = "flex";
-    });
-  });
-
-  // Close modal
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-  }
-
-  // Close when clicking outside the modal
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
-  });
-
-  // Booking form submission
-  bookingForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("✅ Your booking has been submitted successfully!");
+  function closeModal() {
     modal.style.display = "none";
+  }
+
+  if (bookNowBtn) bookNowBtn.addEventListener("click", openModal);
+  choosePlanBtns.forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      const roomName = btn.closest(".room-info").querySelector("h4").textContent;
+      [...roomTypeSelect.options].forEach(option => {
+        if (option.text.includes(roomName)) option.selected = true;
+      });
+      openModal();
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  window.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+
+  bookingForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const bookingData = {
+      checkin: document.getElementById("checkin").value,
+      checkout: document.getElementById("checkout").value,
+      guests: document.getElementById("guests").value,
+      roomType: document.getElementById("room-type").value
+    };
+    if (!bookingData.checkin || !bookingData.checkout || !bookingData.roomType) {
+      alert("Please complete all booking fields.");
+      return;
+    }
+
+    localStorage.setItem("userBooking", JSON.stringify(bookingData));
+    alert("👑 Thank you for booking with us! We’ll ensure you have a truly royal stay 🏰");
+    closeModal();
     bookingForm.reset();
   });
+
+  function loadBookingData() {
+    const savedBooking = localStorage.getItem("userBooking");
+    if (savedBooking) {
+      const data = JSON.parse(savedBooking);
+      document.getElementById("checkin").value = data.checkin || "";
+      document.getElementById("checkout").value = data.checkout || "";
+      document.getElementById("guests").value = data.guests || "1";
+      document.getElementById("room-type").value = data.roomType || "";
+    }
+  }
+
+  // --- LOCAL TIME (NAV) ---
+  function updateLocalTime() {
+    const now = new Date();
+    const options = {
+      timeZone: 'Asia/Kolkata', // Shimla uses IST
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+    };
+    const timeString = now.toLocaleTimeString('en-IN', options);
+    const timeElement = document.getElementById("local-time-nav");
+    if (timeElement) {
+      timeElement.textContent = `${timeString} (IST)`;
+    }
+  }
+
+  updateLocalTime();
+  setInterval(updateLocalTime, 1000);
 });
