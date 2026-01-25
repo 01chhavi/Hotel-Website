@@ -30,16 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- REVIEWS ---
   const reviews = [
     {
-      img: "img/view.jpg",
+      img: "/img/view.jpg",
       text: "The hotel was simply amazing and I couldn't thank The Royal Heritage more...",
-      reviewerImg: "img/profile-pic.jpg",
+      reviewerImg: "/img/profile-pic.jpg",
       name: "Olivia Blisset",
       role: "Satisfied Traveler",
     },
     {
-      img: "img/view.jpg",
+      img: "/img/view.jpg",
       text: "From the first step in, I knew this was going to be special...",
-      reviewerImg: "img/arvi.jpg",
+      reviewerImg: "/img/arvi.jpg",
       name: "Arvi",
       role: "Frequent Guest",
     },
